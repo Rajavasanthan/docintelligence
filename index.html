@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workspace Rental API</title>
+  <title>Extract pdf</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -122,18 +122,19 @@
   </div>
 
   <div class="container">
+    <div class="right-panel">
+      <div id="pdfViewer"></div>
+    </div>
     <div class="left-panel">
       <h3>Response</h3>
-      <pre id="responseText"></pre>
+      <pre id="responseText"  dangerouslySetInnerHTML={{ __html: blog?.content || "" }}></pre>
       <div class="loading" id="loadingIndicator">
         <div class="spinner"></div>
         <p>Loading...</p>
       </div>
     </div>
     
-    <div class="right-panel">
-      <div id="pdfViewer"></div>
-    </div>
+   
   </div>
 
   <script>
@@ -257,7 +258,7 @@
         formatted += 'No extracted data found.\n';
       }
 
-      return formatted;
+      return extractedData.kwargs.content;
     }
   </script>
 
