@@ -129,7 +129,7 @@ serve({
         console.log("LLM response structure:", JSON.stringify(responseLLM, null, 2));
 
         // Return the extracted data in the response
-        return new Response(JSON.stringify({ extractedData: responseLLM }), {
+        return new Response(JSON.stringify({ extractedData: responseLLM}), {
           headers: { "Content-Type": "application/json", ...corsHeaders },
         });
       } catch (error: any) {
